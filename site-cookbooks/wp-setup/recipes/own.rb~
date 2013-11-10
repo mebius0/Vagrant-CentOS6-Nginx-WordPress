@@ -42,11 +42,11 @@ end
 
 bash "own install" do
   user "vagrant"
-  cwd "/var/www/clients"
+  cwd "/var/www/own"
   environment "HOME" => "/home/vagrant"
   code <<-EOH
-    cd /var/www/clients
-    wp core install --url=local.dev.clients --title='Own Development' --admin_name=admin --admin_email=s.endoh@aistear.net --admin_password=admin
+    cd /var/www/own
+    wp core install --url=local.dev.own --title='Own Development' --admin_name=admin --admin_email=s.endoh@aistear.net --admin_password=admin
     EOH
 end
     

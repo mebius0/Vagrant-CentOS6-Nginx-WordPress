@@ -46,7 +46,7 @@ bash "own install" do
   environment "HOME" => "/home/vagrant"
   code <<-EOH
     cd /var/www/own
-    wp core install --url=local.dev.own --title='Own Development' --admin_name=admin --admin_email=s.endoh@aistear.net --admin_password=admin
+    wp core install --url=local.dev.own --title='Own Development' --admin_name=admin --admin_email=admin@example.com --admin_password=admin
     EOH
 end
     

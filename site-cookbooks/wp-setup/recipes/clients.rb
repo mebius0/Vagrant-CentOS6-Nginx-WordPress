@@ -46,7 +46,7 @@ bash "clients install" do
   environment "HOME" => "/home/vagrant"
   code <<-EOH
     cd /var/www/clients
-    wp core install --url=local.dev.clients --title='Clients Development' --admin_name=admin --admin_email=s.endoh@aistear.net --admin_password=admin
+    wp core install --url=local.dev.clients --title='Clients Development' --admin_name=admin --admin_email=admin@example.com --admin_password=admin
     EOH
 end
     

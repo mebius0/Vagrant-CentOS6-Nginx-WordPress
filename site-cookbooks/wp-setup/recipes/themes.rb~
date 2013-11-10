@@ -40,11 +40,12 @@ execute "themes database" do
   action :run
 end
 
-execute "themes install" do
-  user "vaglant"
-  command "wp core install --url=local.dev.themes --title='Themes Development' --admin_name=admin --admin_email=s.endoh@aistear.net --admin_password=admin"
-  action :run
+bash "themes install" do
+  user "vagrant"
+  cwd "/var/www/themes"
+  environment "HOME" => "/home/vagrant"
+  code <<-EOH
+    cd /var/www/themes
+    wp core install --url=local.dev.themes --title='Themes Development' --admin_name=admin --admin_email=s.endoh@aistear.net --admin_password=admin
+    EOH
 end
-    
-    
-
