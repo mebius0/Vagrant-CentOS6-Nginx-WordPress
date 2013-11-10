@@ -1,0 +1,7 @@
+server {
+	server_name	local.dev.plugins;
+	charset	utf-8;
+	root		/var/www/plugins/wordpress;
+
+	include global/wordpress.conf;
+}

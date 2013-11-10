@@ -1,0 +1,2 @@
+GRANT ALL ON wp_own.* TO 'root'@'localhost' IDENTIFIED BY PASSWORD 'wordpress';
+FLUSH PRIVILEGES;
