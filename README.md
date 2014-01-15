@@ -10,3 +10,7 @@ Nginx 1.4.3
 php-fpm 5.4
 
 WordPress Stable
+
+================================
+
+vagrant plugin install vagrant-hostsupdater
