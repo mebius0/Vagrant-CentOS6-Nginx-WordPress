@@ -27,10 +27,11 @@ template "my.cnf" do
   notifies :restart, 'service[mysqld]'
 end
 
-execute "assign-root-password" do
+execute "add-root-password" do
   command %Q[mysqladmin -u root -h localhost password 'wordpress']
   action :run
   only_if %Q[mysql -u root -e 'show databases;']
 end
+
 
 

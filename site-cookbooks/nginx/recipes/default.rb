@@ -7,12 +7,13 @@
 # All rights reserved - Do Not Redistribute
 #
 
-remote_file "#{Chef::Config[:file_cache_path]}/nginx-1.4.4-1.el6.ngx.i386.rpm" do
-  source "http://nginx.org/packages/centos/6/i386/RPMS/nginx-1.4.4-1.el6.ngx.i386.rpm"
+remote_file "#{Chef::Config[:file_cache_path]}/nginx-1.4.5-1.el6.ngx.x86_64.rpm" do
+  source "http://nginx.org/packages/centos/6/x86_64/RPMS/nginx-1.4.5-1.el6.ngx.x86_64.rpm"
 end
 
-rpm_package "nginx" do
-  source "#{Chef::Config[:file_cache_path]}/nginx-1.4.4-1.el6.ngx.i386.rpm"
+yum_package "nginx" do
+  source "#{Chef::Config[:file_cache_path]}/nginx-1.4.5-1.el6.ngx.x86_64.rpm"
+  action :install
 end
 
 service "nginx" do

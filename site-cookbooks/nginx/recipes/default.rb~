@@ -7,12 +7,13 @@
 # All rights reserved - Do Not Redistribute
 #
 
-remote_file "#{Chef::Config[:file_cache_path]}/nginx-1.4.3-1.el6.ngx.x86_64.rpm" do
-  source "http://nginx.org/packages/centos/6/x86_64/RPMS/nginx-1.4.3-1.el6.ngx.x86_64.rpm"
+remote_file "#{Chef::Config[:file_cache_path]}/nginx-1.4.5-1.el6.ngx.i386.rpm" do
+  source "http://nginx.org/packages/centos/6/i386/RPMS/nginx-1.4.5-1.el6.ngx.i386.rpm"
 end
 
-rpm_package "nginx" do
-  source "#{Chef::Config[:file_cache_path]}/nginx-1.4.3-1.el6.ngx.x86_64.rpm"
+yum_package "nginx" do
+  source "#{Chef::Config[:file_cache_path]}/nginx-1.4.5-1.el6.ngx.i386.rpm"
+  action :install
 end
 
 service "nginx" do
@@ -87,6 +88,14 @@ end
 template "own" do
   path "/etc/nginx/sites-enabled/own"
   source "sites-enabled/own.erb"
+  owner "root"
+  group "root"
+  mode 00644
+end
+
+template "database" do
+  path "/etc/nginx/sites-enabled/database"
+  source "sites-enabled/database.erb"
   owner "root"
   group "root"
   mode 00644

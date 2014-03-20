@@ -8,7 +8,7 @@
 #
 
 %w{mysql mysql-server mysql-libs mysql-devel mysql-bench phpMyAdmin}.each do |pkg|
-  package pkg do
+  yum_package pkg do
     action :install
   end
 end

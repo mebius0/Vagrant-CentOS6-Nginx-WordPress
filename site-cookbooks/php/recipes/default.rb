@@ -7,8 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
-%w{php php-fpm php-cli php-pdo php-mysql php-common  php-devel php-gd php-mbstring php-odbc php-pear php-snmp php-bcmath php-xmlrpc php-tidy php-xml php-soap php-pecl-apc}.each do |pkg|
-  package pkg do
+%w{php php-fpm php-cli php-pdo php-mysql php-common php-devel php-gd php-mbstring php-odbc php-pear php-snmp php-bcmath php-xmlrpc php-tidy php-xml php-soap php-pecl-apc}.each do |pkg|
+  yum_package pkg do
     action :install
   end
 end
