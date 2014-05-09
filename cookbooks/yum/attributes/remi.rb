@@ -1,30 +1,24 @@
-#
-# Cookbook Name:: yum
-# Attributes:: remi
-#
-# Copyright 2011, Opscode, Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
+default['yum']['remi']['repositoryid'] = 'remi'
 
-case node['platform']
-when "fedora"
-  default['yum']['remi']['url'] = "http://rpms.famillecollet.com/fedora/#{node['platform_version'].to_i}/remi/mirror"
-else
-  default['yum']['remi']['url'] = "http://rpms.famillecollet.com/enterprise/#{node['platform_version'].to_i}/remi/mirror"
+case node['platform_version'].to_i
+when 5
+	default['yum']['remi']['description'] = 'Les RPM de remi pour Enterprise Linux 5 - $basearch'
+	default['yum']['remi']['baseurl'] = 'http://rpms.famillecollet.com/enterprise/5/remi/$basearch/'
+	default['yum']['remi']['mirrorlist'] = 'http://rpms.famillecollet.com/enterprise/5/remi/mirror'
+	default['yum']['remi']['gpgkey'] = 'http://rpms.famillecollet.com/RPM-GPG-KEY-remi'
+when 6
+	default['yum']['remi']['description'] = 'Les RPM de remi pour Enterprise Linux 6 - $basearch'
+	default['yum']['remi']['baseurl'] = 'http://rpms.famillecollet.com/enterprise/6/remi/$basearch/'
+	default['yum']['remi']['mirrorlist'] = 'http://rpms.famillecollet.com/enterprise/6/remi/mirror'
+	default['yum']['remi']['gpgkey'] = 'http://rpms.famillecollet.com/RPM-GPG-KEY-remi'
+when 7
+	default['yum']['remi']['description'] = 'Les RPM de remi pour Enterprise Linux 7 - $basearch'
+	default['yum']['remi']['baseurl'] = 'http://rpms.famillecollet.com/enterprise/7/remi/$basearch/'
+	default['yum']['remi']['mirrorlist'] = 'http://rpms.famillecollet.com/enterprise/7/remi/mirror'
+	default['yum']['remi']['gpgkey'] = 'http://rpms.famillecollet.com/RPM-GPG-KEY-remi'
 end
 
-default['yum']['remi']['key'] = "RPM-GPG-KEY-remi"
-default['yum']['remi']['key_url'] = "http://rpms.famillecollet.com/#{node['yum']['remi']['key']}"
-default['yum']['remi']['includepkgs'] = nil
-default['yum']['remi']['exclude'] = nil
+default['yum']['remi']['failovermethod'] = 'priority'
+default['yum']['remi']['gpgcheck'] = true
+default['yum']['remi']['enabled'] = true
+default['yum']['remi']['managed'] = true

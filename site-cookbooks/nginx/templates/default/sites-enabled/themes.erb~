@@ -1,7 +1,0 @@
-server {
-	server_name	local.dev.themes;
-	charset	utf-8;
-	root		/var/www/themes/wordpress;
-
-	include global/wordpress.conf;
-}
