@@ -1,9 +1,0 @@
-server {
-	server_name	local.dev.clients;
-	charset		utf-8;
-	root		/var/www/clients;
-
-	include	global/restrictions.conf;
-	include	global/wordpress.conf;
-	include	global/wp-proxy.conf;
-}
