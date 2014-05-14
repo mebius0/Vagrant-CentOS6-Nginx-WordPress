@@ -3,7 +3,7 @@
 # Recipe:: default
 #
 
-%w{php php-fpm php-cli php-pdo php-mysql php-common php-devel php-gd php-mbstring php-mcrypt php-odbc php-pear php-pecl-jsonc php-php-gettext php-snmp php-bcmath php-xmlrpc php-tidy php-process php-xml php-soap php-opcache}.each do |pkg|
+%w{php php-fpm php-cli php-pdo php-mysqlnd php-common php-devel php-gd php-mbstring php-mcrypt php-odbc php-pear php-pecl-jsonc php-php-gettext php-snmp php-bcmath php-xmlrpc php-tidy php-process php-xml php-soap php-opcache}.each do |pkg|
 	yum_package pkg do
 		action :install
 	end
