@@ -21,17 +21,17 @@ location / {
 	}
 
 	if ($http_user_agent ~* '(DoCoMo|J-PHONE|Vodafone|MOT-|UP\.Browser|DDIPOCKET|ASTEL|PDXGW|Palmscape|Xiino|sharp pda browser|Windows CE|L-mode|WILLCOM|SoftBank|Semulator|Vemulator|J-EMULATOR|emobile|mixi-mobile-converter)') {
-		set $do_not_cache 1;
+		set	$do_not_cache 1;
 	}
 	if ($http_user_agent ~* '(iPhone|iPod|Opera Mini|Android.*Mobile|NetFront|PSP|BlackBerry)') {
-		set $do_not_cache 1;
+		set	$do_not_cache 1;
 	}
 	if ($http_cookie ~* "comment_author_|wordpress_(?!test_cookie)|wp-postpass_" ) {
-		set $do_not_cache 1;
+		set	$do_not_cache 1;
 	}
 	proxy_no_cache		$do_not_cache;
 	proxy_cache_bypass	$do_not_cache;
-	proxy_cache		czone;
-	proxy_redirect          off;
-	proxy_pass		http://backend;
+	proxy_cache			czone;
+	proxy_redirect		off;
+	proxy_pass			http://backend;
 }

@@ -17,8 +17,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		vb.customize ["modifyvm", :id, "--natdnshostresolver1", "off"]
 	end
 
-#	config.vm.box = "chef/centos-6.5"	# 64bit
-	config.vm.box = "chef/centos-6.5-i386"	# 32bit
+	config.vm.box = "chef/centos-6.5"	# 64bit
+#	config.vm.box = "chef/centos-6.5-i386"	# 32bit
 
 	config.vm.hostname = "local.dev"
 	config.vm.network :private_network, ip: "192.168.100.10"
@@ -29,6 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.hostsupdater.remove_on_suspend = true
 
 	config.vm.synced_folder "www/", "/var/www", :create => true, :owner => "vagrant", :mount_options => [ "dmode=755", "fmode=755" ]
+	config.vm.synced_folder "cache/nginx/", "/var/cache/nginx", :create => true, :owner => "vagrant", :mount_options => [ "dmode=755", "fmode=755" ]
 
 	config.ssh.forward_agent = true
 

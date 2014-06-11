@@ -46,6 +46,14 @@ template "nginx.conf" do
 	mode 00644
 end
 
+template "proxy.conf" do
+	path "/etc/nginx/proxy.conf"
+	source "proxy.conf.erb"
+	owner "root"
+	group "root"
+	mode 00644
+end
+
 template "restrictions.conf" do
 	path "/etc/nginx/global/restrictions.conf"
 	source "global/restrictions.conf.erb"
